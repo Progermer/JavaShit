@@ -34,7 +34,7 @@ class GuessingGameAdvanced {
                     high = mid - 1; // Upper bound one less than number guessed
                 } else if (adjustBoundary.contains("h")) {
                     low = mid + 1; // Lower bound one greater than number guessed
-                } else if (adjustBoundary.contains("Good")) { // Part of "Good guess! You won."
+                } else if (adjustBoundary.contains("guessed")) {
                     correct = true; 
                 }
                 counter += 1;
