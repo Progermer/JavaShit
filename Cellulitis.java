@@ -13,14 +13,11 @@ import java.util.Scanner;
 
 public class Cellulitis {
     Scanner sc = new Scanner(System.in);
-    boolean[] tempGeneration;
-    boolean[] currentGeneration;
     String x = sc.next(); // type of automaton
     int L = sc.nextInt(); // length of row, doesnt count extra border cells
     int G = sc.nextInt(); // number of generations
-    currentGeneration = new boolean[L+2];
-    tempGeneration = new boolean[L+2];
-    
+    boolean[] tempGeneration = new boolean[L+2];
+    boolean[] currentGeneration = new boolean[L+2];
 
 
     boolean runA(String z){
@@ -41,8 +38,9 @@ public class Cellulitis {
                 return true;
             case ("111"):
                 return false;
+            default:
+                return false;
         }
-        return runA(z);
     }
 
     void runB(){
@@ -53,11 +51,7 @@ public class Cellulitis {
 
     }
 
-    void draw(){
-
-    }
-
-    boolean[] nextGenerationA(boolean[] generation){
+    void draw(boolean[] generation) { // prints current generation
         for (int i = 1; i < L + 2; i++ ){
             if (currentGeneration[i] == true){
                 System.out.print("*");
@@ -65,14 +59,17 @@ public class Cellulitis {
                 System.out.print(" ");
             }
         }
-        for (int i = 1; i < L + 2; i++) {
+        System.out.println("");
+    }
+
+    boolean[] nextGenerationA(boolean[] generation){ //returns next generation (hypothetically) // inputs an array, returns an array
+    
+        for (int i = 1; i < L + 1; i++) {
             int left = (currentGeneration[i-1]) ? 1 : 0;
             int mid = (currentGeneration[i]) ? 1 : 0;
             int right = (currentGeneration[i+1]) ? 1 : 0;
             String pattern = String.valueOf(left) + String.valueOf(mid) + String.valueOf(right);
-            boolean newVal = runA(pattern);
-            int fick = (newVal)? 1 : 0;
-            currentGeneration
+            tempGeneration[i] = runA(pattern);
         }
         //print current gen
         //calc next gen
@@ -80,10 +77,30 @@ public class Cellulitis {
         //repeat
         //...
         //profit
-        return generation;
+        return tempGeneration;
     }
 
     void main(){
+        String start = sc.next();
+        if (start.equals("init_start")) {
+            String input = sc.next();
+            while (!(input.equals("init_end"))) {
+                int n = Integer.parseInt(input);
+                if( n <= L) {
+                    currentGeneration[n+1] = true;
+                } 
+                input = sc.next();
+            }
+        }
+        //draw(currentGeneration);
+        for (int i = 0; i<G; i++){
+            draw(currentGeneration);
+            currentGeneration = nextGenerationA(currentGeneration);
+                
+            
+            
+        }
+        
 
     }
 
