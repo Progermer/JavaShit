@@ -43,17 +43,17 @@ public class Cellulitis {
         }
     }
 
-    void runB(){
+    void runB(){ //stfu
 
     }
 
-    void runU(){
+    void runU(){ //stfu
 
     }
 
     void draw(boolean[] generation) { // prints current generation
         for (int i = 1; i < L + 2; i++ ){
-            if (currentGeneration[i] == true){
+            if (generation[i]){
                 System.out.print("*");
             } else {
                 System.out.print(" ");
@@ -62,13 +62,23 @@ public class Cellulitis {
         System.out.println("");
     }
 
-    boolean[] nextGenerationA(boolean[] generation){ //returns next generation (hypothetically) // inputs an array, returns an array
+    boolean[] nextGenerationA(boolean[] generation){ //returns next generation (hypothetically) // inputs an array, returns an array // something is fucky wucky with this function
     
+        // Everyting seems to check out but something is really wrong 
+        // How does this even happen >_>
+        // trying to figure this out gives me cancer .-.
+
         for (int i = 1; i < L + 1; i++) {
-            int left = (currentGeneration[i-1]) ? 1 : 0;
-            int mid = (currentGeneration[i]) ? 1 : 0;
-            int right = (currentGeneration[i+1]) ? 1 : 0;
+            // builds the cage of 3 
+            int left = (generation[i-1]) ? 1 : 0;
+            int mid = (generation[i]) ? 1 : 0;
+            int right = (generation[i+1]) ? 1 : 0;
+
+            // passes the values of the cage to the swtich case function
             String pattern = String.valueOf(left) + String.valueOf(mid) + String.valueOf(right);
+            //System.out.print(pattern+ " ");
+
+            // changes the bools based on the results of the switch cases
             tempGeneration[i] = runA(pattern);
         }
         //print current gen
@@ -86,16 +96,17 @@ public class Cellulitis {
             String input = sc.next();
             while (!(input.equals("init_end"))) {
                 int n = Integer.parseInt(input);
-                if( n <= L) {
+                if( n < L) {
                     currentGeneration[n+1] = true;
                 } 
                 input = sc.next();
             }
-        }
-        //draw(currentGeneration);
+        } 
         for (int i = 0; i<G; i++){
+            // System.out.print(currentGeneration);
             draw(currentGeneration);
-            currentGeneration = nextGenerationA(currentGeneration);
+            // System.out.print(currentGeneration);
+            currentGeneration = nextGenerationA(currentGeneration); // this is the tempGeneration value returned by the nextGenerationA function
                 
             
             
