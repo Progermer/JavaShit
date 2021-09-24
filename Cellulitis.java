@@ -6,10 +6,11 @@
  * @author <<Gabrielius Rosinas>>
  * @id <<1655175>>
  * @group <<68>>
- * @date <<16/09/2021>>
+ * @date <<23/09/2021>>
  */
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Cellulitis {
     Scanner sc = new Scanner(System.in);
@@ -41,6 +42,22 @@ public class Cellulitis {
             default:
                 return false;
         }
+    for (int i = 1; )
+        if(currentGeneration)
+
+        // if (cur) {
+        //     if (next && prev) {
+        //         cur = // 7
+        //     } else if (next) {
+
+        //     } else if (prev)
+        // } else {
+        //     if (next && prev) {
+        //         cur = // 7
+        //     } else if (next) {
+
+        //     } else if (prev)
+        // }
     }
 
     void runB(){ //stfu
@@ -59,11 +76,11 @@ public class Cellulitis {
                 System.out.print(" ");
             }
         }
-        System.out.println("");
+        System.out.println();
     }
-    Arrays.fill(tempGeneration, false);
-    boolean[] nextGenerationA(boolean[] generation){ //returns next generation (hypothetically) // inputs an array, returns an array // something is fucky wucky with this function
     
+    boolean[] nextGenerationA(boolean[] generation){ //returns next generation (hypothetically) // inputs an array, returns an array // something is fucky wucky with this function
+        Arrays.fill(tempGeneration, false);
         // Everyting seems to check out but something is really wrong 
         // How does this even happen >_>
         // trying to figure this out gives me cancer .-.
@@ -79,7 +96,9 @@ public class Cellulitis {
             //System.out.print(pattern+ " ");
 
             // changes the bools based on the results of the switch cases
+            runA(pattern);
             generation[i] = runA(pattern);
+        
         }
         //print current gen
         //calc next gen
