@@ -1,3 +1,4 @@
+package Assignments;
 
 /**
  * GuessingGameAdvanced -- second part of assignment 2 in 2ip90
