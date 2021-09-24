@@ -6,7 +6,7 @@ public class Cellulitis {
     int length = sc.nextInt(); // length of row, doesnt count extra border cells
     int gens = sc.nextInt(); // number of generations
     boolean[] currentGen = new boolean[length+2]; // init boolean array of length + 2 to account for borders
-    boolean[] rulesBool = new boolean[8];
+    boolean[] rulesBool = new boolean[8]; // boolean array for the U automaton rules
 
 
     void draw(boolean[] generation){ //prints current generation
