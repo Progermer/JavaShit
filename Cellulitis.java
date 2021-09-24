@@ -42,8 +42,8 @@ public class Cellulitis {
             default:
                 return false;
         }
-    for (int i = 1; )
-        if(currentGeneration)
+    // for (int i = 1; )
+    //     if(currentGeneration)
 
         // if (cur) {
         //     if (next && prev) {
