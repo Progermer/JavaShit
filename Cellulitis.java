@@ -61,7 +61,7 @@ public class Cellulitis {
         }
         System.out.println("");
     }
-
+    Arrays.fill(tempGeneration, false);
     boolean[] nextGenerationA(boolean[] generation){ //returns next generation (hypothetically) // inputs an array, returns an array // something is fucky wucky with this function
     
         // Everyting seems to check out but something is really wrong 
@@ -79,7 +79,7 @@ public class Cellulitis {
             //System.out.print(pattern+ " ");
 
             // changes the bools based on the results of the switch cases
-            tempGeneration[i] = runA(pattern);
+            generation[i] = runA(pattern);
         }
         //print current gen
         //calc next gen
@@ -87,7 +87,7 @@ public class Cellulitis {
         //repeat
         //...
         //profit
-        return tempGeneration;
+        return generation;
     }
 
     void main(){
