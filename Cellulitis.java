@@ -6,7 +6,6 @@ public class Cellulitis {
     int length = sc.nextInt(); // length of row, doesnt count extra border cells
     int gens = sc.nextInt(); // number of generations
     boolean[] currentGen = new boolean[length+2]; // init boolean array of length + 2 to account for borders
-    //int[] rules = new int[8]; TODO remove
     boolean[] rulesBool = new boolean[8];
 
 
@@ -106,7 +105,6 @@ public class Cellulitis {
         }
         if (type.equals("U")) { // initializes the rules for automaton type U
             for( int j = 0; j < 8; j++ ){
-                //rules[j] = sc.nextInt();
                 if (sc.nextInt() == 1){
                     rulesBool[j] = true;
                 } else {
