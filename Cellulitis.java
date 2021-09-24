@@ -1,6 +1,14 @@
+// Homework Assignment 3 2ip90
+/**
+ * @ <<Tomas Sutavicius>> <<1704915>>
+ * @ <<Gabrielius Rosinas>> <<1655175>>
+ * @ <<Group 68>>
+ * @ 9/24/2021
+ */
+
 import java.util.Scanner;
 
-public class Cellulitis {
+class Cellulitis {
     Scanner sc = new Scanner(System.in);
     String type = sc.next(); // type of automaton
     int length = sc.nextInt(); // length of row, doesnt count extra border cells
@@ -69,8 +77,6 @@ public class Cellulitis {
             default:
                 return false;
         }
-
-
     }
 
     boolean[] calcNextGen(boolean[] curGen){ // calculates the next generation and returns it 
