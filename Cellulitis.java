@@ -8,7 +8,7 @@
 
 import java.util.Scanner;
 
-class Cellulitis {
+public class Cellulitis {
     Scanner sc = new Scanner(System.in);
     String type = sc.next(); // type of automaton
     int length = sc.nextInt(); // length of row, doesnt count extra border cells
@@ -16,9 +16,8 @@ class Cellulitis {
     boolean[] currentGen = new boolean[length+2]; // init boolean array of length + 2 to account for borders
     boolean[] rulesBool = new boolean[8]; // boolean array for the U automaton rules
 
-
     void draw(boolean[] generation){ //prints current generation
-        for (int i = 0; i < length + 2; i++ ){
+        for (int i = 1; i < length + 1; i++ ){
             if (generation[i]){
                 System.out.print("*");
             } else {
@@ -28,33 +27,33 @@ class Cellulitis {
         System.out.println();
     }
 
-    boolean patternA(String z){ // pattern A
-        switch(z){
-            case ("111"):
-                return false;
-            case ("010"):
-                return false;
-            case ("000"):
-                return false;
-            default:
-                return true;
-        }
-    }
+    // boolean patternA(String z){ // pattern A
+    //     switch(z){
+    //         case ("111"):
+    //             return false;
+    //         case ("010"):
+    //             return false;
+    //         case ("000"):
+    //             return false;
+    //         default:
+    //             return true;
+    //     }
+    // }
 
-    boolean patternB(String z){ // pattern B
-        switch(z){
-            case ("001"):
-                return true;
-            case ("010"):
-                return true;
-            case ("100"):
-                return true;
-            case ("110"):
-                return true;
-            default:
-                return false;
-        }
-    }
+    // boolean patternB(String z){ // pattern B
+    //     switch(z){
+    //         case ("001"):
+    //             return true;
+    //         case ("010"):
+    //             return true;
+    //         case ("100"):
+    //             return true;
+    //         case ("110"):
+    //             return true;
+    //         default:
+    //             return false;
+    //     }
+    // }
 
     boolean patternU(String z) { // custom pattern U
         switch(z){
@@ -86,18 +85,12 @@ class Cellulitis {
             int mid = (curGen[i]) ? 1 : 0;
             int right = (curGen[i+1]) ? 1 : 0;
             String pattern = String.valueOf(left) + String.valueOf(mid) + String.valueOf(right); //creates cell neighbourhood pattern
-            if (type.equals("A")){
-                nextGen[i] = patternA(pattern);
-            } else if (type.equals("B")) {
-                nextGen[i] = patternB(pattern);
-            } else if (type.equals("U")){
-                nextGen[i] = patternU(pattern);
-            }   
+            nextGen[i] = patternU(pattern);
         }
         return nextGen;
     }
 
-    void init(){ //initializes all inputs 
+    void init() { // Initializes all inputs
         String start = sc.next();
         if (start.equals("init_start")) {
             String input = sc.next();
@@ -109,9 +102,25 @@ class Cellulitis {
                 input = sc.next();
             }
         }
-        if (type.equals("U")) { // initializes the rules for automaton type U
-            for( int j = 0; j < 8; j++ ){
+        if (type.equals("U")) {
+            for ( int j = 0; j < 8; j++ ){
                 if (sc.nextInt() == 1){
+                    rulesBool[j] = true;
+                } else {
+                    rulesBool[j] = false;
+                }
+            }
+        } else if ( type.equals("A")) {
+            for ( int j = 0; j < 8; j++ ){
+                if (j == 0 || j == 2 || j == 7){
+                    rulesBool[j] = false;
+                } else {
+                    rulesBool[j] = true;
+                }
+            }
+        } else if ( type.equals("B")) {
+            for ( int j = 0; j < 8; j++ ){
+                if (j == 1 || j == 2 || j == 4 || j == 6){
                     rulesBool[j] = true;
                 } else {
                     rulesBool[j] = false;
