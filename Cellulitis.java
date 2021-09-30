@@ -13,13 +13,13 @@ class Cellulitis {
     String type = sc.next(); // type of automaton
     int length = sc.nextInt(); // length of row, doesnt count extra border cells
     int gens = sc.nextInt(); // number of generations
-    boolean[] currentGen = new boolean[length+2]; // init boolean array of length + 2 to account for borders
+    boolean[] currentGen = new boolean[length + 2]; // init boolean array of length + 2 to account for borders
     boolean[] rulesBool = new boolean[8]; // boolean array for the U automaton rules
 
 
-    void draw(boolean[] generation){ //prints current generation
-        for (int i = 0; i < length + 2; i++ ){
-            if (generation[i]){
+    void draw(boolean[] generation) { //prints current generation
+        for (int i = 1; i < length + 1; i++ ){
+            if (generation[i]) {
                 System.out.print("*");
             } else {
                 System.out.print(" ");
@@ -28,8 +28,8 @@ class Cellulitis {
         System.out.println();
     }
 
-    boolean patternA(String z){ // pattern A
-        switch(z){
+    boolean patternA(String z) { // pattern A
+        switch (z) {
             case ("111"):
                 return false;
             case ("010"):
@@ -41,8 +41,8 @@ class Cellulitis {
         }
     }
 
-    boolean patternB(String z){ // pattern B
-        switch(z){
+    boolean patternB(String z) { // pattern B
+        switch (z) {
             case ("001"):
                 return true;
             case ("010"):
@@ -57,7 +57,7 @@ class Cellulitis {
     }
 
     boolean patternU(String z) { // custom pattern U
-        switch(z){
+        switch (z) {
             case ("000"):
                 return rulesBool[0];
             case ("001"):
@@ -79,18 +79,18 @@ class Cellulitis {
         }
     }
 
-    boolean[] calcNextGen(boolean[] curGen){ // calculates the next generation and returns it 
-        boolean[] nextGen = new boolean[length+2]; // initializes/resets nextGen array
-        for (int i = 1; i<length+1; i++){
-            int left = (curGen[i-1]) ? 1 : 0;
+    boolean[] calcNextGen(boolean[] curGen) { // calculates the next generation and returns it 
+        boolean[] nextGen = new boolean[length + 2]; // initializes/resets nextGen array
+        for (int i = 1; i < length + 1; i++) { //creates cell neighbourhood pattern
+            int left = (curGen[i - 1]) ? 1 : 0;
             int mid = (curGen[i]) ? 1 : 0;
-            int right = (curGen[i+1]) ? 1 : 0;
-            String pattern = String.valueOf(left) + String.valueOf(mid) + String.valueOf(right); //creates cell neighbourhood pattern
-            if (type.equals("A")){
+            int right = (curGen[i + 1]) ? 1 : 0;
+            String pattern = String.valueOf(left) + String.valueOf(mid) + String.valueOf(right);
+            if (type.equals("A")) {
                 nextGen[i] = patternA(pattern);
             } else if (type.equals("B")) {
                 nextGen[i] = patternB(pattern);
-            } else if (type.equals("U")){
+            } else if (type.equals("U")) {
                 nextGen[i] = patternU(pattern);
             }   
         }
@@ -103,14 +103,14 @@ class Cellulitis {
             String input = sc.next();
             while (!(input.equals("init_end"))) {
                 int n = Integer.parseInt(input);
-                if( n < length+1) {
+                if ( n < length + 1) {
                     currentGen[n] = true;
                 }
                 input = sc.next();
             }
         }
         if (type.equals("U")) { // initializes the rules for automaton type U
-            for( int j = 0; j < 8; j++ ){
+            for ( int j = 0; j < 8; j++ ) {
                 if (sc.nextInt() == 1){
                     rulesBool[j] = true;
                 } else {
