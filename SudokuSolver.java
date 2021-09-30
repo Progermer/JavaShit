@@ -26,6 +26,7 @@ class SudokuSolver {
         { 9, 0, 0,   0, 0, 3,    0, 2, 5 },
         { 6, 0, 3,   0, 0, 0,    8, 0, 0 },
     };
+    int[] asteriskCounter = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
 
     int solutionCounter = 0; // Solution counter
 
@@ -52,8 +53,6 @@ class SudokuSolver {
         for (int i = 0; i < c; i++) {
             if(grid[i][c] == d) {
                 bool = true;
-            } else {
-                bool = false;
             }
         }
        return bool;
@@ -66,7 +65,14 @@ class SudokuSolver {
     }
 	
 	// Is there a conflict in the asterisk when we fill in d?
-	// Delete this comment and add your asteriskConflict method in its place.
+	boolean asteriskConflict(int d){
+        boolean bool = false;
+        if (asteriskCounter[d-1] == 1){ //checks array asteriskCounter where index represents number and 1/0 represents whether or not it has been used already
+            bool = true;
+        }
+        return bool;
+
+    }
 	
 	// Finds the next empty square (in "reading order").
     int[] findEmptySquare() {
