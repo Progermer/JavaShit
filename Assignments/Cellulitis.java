@@ -1,3 +1,5 @@
+package Assignments;
+
 // Homework Assignment 3 2ip90
 /**
  * @ <<Tomas Sutavicius>> <<1704915>>
