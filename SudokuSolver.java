@@ -16,17 +16,17 @@ class SudokuSolver {
     // int cempty = 0;
 
     int[][] grid = new int[][] {  // The puzzle grid; 0 represents empty.
-        { 0, 9, 0,   7, 3, 0,    4, 0, 0 },    // One solution.
-        { 0, 0, 0,   0, 0, 0,    5, 0, 0 },
-        { 3, 0, 0,   0, 0, 6,    0, 0, 0 },
+        { 7, 0, 0,   4, 0, 0,    2, 0, 0 },    // One solution.
+        { 9, 3, 0,   0, 0, 0,    0, 0, 0 },
+        { 0, 0, 2,   0, 8, 0,    0, 0, 0 },
 
-        { 0, 0, 0,   0, 0, 2,    6, 4, 0 },
-        { 0, 0, 0,   6, 5, 1,    0, 0, 0 },
-        { 0, 0, 6,   9, 0, 7,    0, 0, 0 },
+        { 4, 0, 0,   0, 0, 2,    0, 9, 0 },
+        { 0, 0, 0,   0, 0, 0,    0, 0, 6 },
+        { 0, 0, 1,   8, 0, 6,    0, 7, 0 },
 
-        { 5, 8, 0,   0, 0, 0,    0, 0, 0 },
-        { 9, 0, 0,   0, 0, 3,    0, 2, 5 },
-        { 6, 0, 3,   0, 0, 0,    8, 0, 0 },
+        { 0, 0, 0,   0, 0, 3,    0, 0, 0 },
+        { 0, 0, 0,   9, 0, 5,    0, 0, 0 },
+        { 0, 0, 0,   0, 0, 0,    0, 4, 0 },
     };
     
     int[][] finalGrid = new int[9][9];
@@ -34,11 +34,10 @@ class SudokuSolver {
 
     // Is there a conflict when we fill in d at position (r, c)?
     boolean givesConflict(int r, int c, int d) {
-        boolean bool = false;
         if ((rowConflict(r, d) || columnConflict(c, d) || boxConflict(r, c, d) || asteriskConflict(r, c, d))){
-            bool = true;
+            return true;
         }
-        return bool;
+        return false;
     }
 
     // Is there a conflict when we fill in d in row r?
@@ -67,7 +66,7 @@ class SudokuSolver {
         int rowEnd = rowStart + SUDOKU_BOX_DIMENSION;
         int colStart = (c/SUDOKU_BOX_DIMENSION) * SUDOKU_BOX_DIMENSION; 
         int colEnd =  colStart + SUDOKU_BOX_DIMENSION;
-
+        
         for (int i = rowStart; i < rowEnd ; i++) {
             for (int j = colStart; j < colEnd; j++) {
                 if(grid[i][j] == d) {
@@ -85,7 +84,6 @@ class SudokuSolver {
         for (int i = 0; i < asteriksLocation.length; i++ ){
                 if( r == asteriksLocation[i][0] && c == asteriksLocation[i][1]) {
                     location = true;
-                    //System.out.println(location);
                     break;
                 }
         }
@@ -122,27 +120,36 @@ class SudokuSolver {
     }
 
     // Find all solutions for the grid, and stores the final solution.
-    void solve() {
+     void solve() {
        int[] emptySquare = findEmptySquare();
-       System.out.println(String.format("(%d,%d)", emptySquare[0], emptySquare[1] ));
-       if (emptySquare[0] != -1) {
-            int r = emptySquare[0];
-            int c = emptySquare[1];
-            for (int i = 1; i <= 9; i++) {
+        int r = emptySquare[0];
+        int c = emptySquare[1];
+        for (int i = 1; i <= 9; i++) {
+            if(r != -1) {
                 if (!givesConflict(r, c, i)) {
                     grid[r][c] = i;
+                    if (findEmptySquare()[0] == -1 ) {
+                        firstSolution();
+                        solutionCounter++;
+                }
                     solve();
                     grid[r][c] = 0;
-                }
+                } 
             }
-            if (r == 9 && c == 9){
-                finalGrid = grid;
-            } 
-       }
+                       
+        } 
     }
-
+    void firstSolution() {
+        finalGrid = new int[grid.length][grid.length];
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                finalGrid[i][j] = grid[i][j];
+            }
+        }
+    }
     // Print the sudoku grid.
     void print(){
+        grid = finalGrid;
         System.out.println("+-----------------+");
         
         for (int i = 0; i < 9; i++){
@@ -171,39 +178,17 @@ class SudokuSolver {
     
     }
 
-    void printFinal(){
-        System.out.println("+-----------------+");
-        
-        for (int i = 0; i < 9; i++){
-            if (i == 1 || i == 7){
-                String test = String.format("|%d %d %d|%d>%d<%d|%d %d %d|", 
-                finalGrid[i][0], finalGrid[i][1], finalGrid[i][2], finalGrid[i][3], finalGrid[i][4], finalGrid[i][5], finalGrid[i][6], finalGrid[i][7], finalGrid[i][8]);
-                System.out.println(test);
-            } else if (i == 2 || i == 6){
-                String test = String.format("|%d %d>%d|%d %d %d|%d<%d %d|",
-                finalGrid[i][0], finalGrid[i][1], finalGrid[i][2], finalGrid[i][3], finalGrid[i][4], finalGrid[i][5], finalGrid[i][6], finalGrid[i][7], finalGrid[i][8]);
-                System.out.println(test);
-            } else if (i==4){
-                String test = String.format("|%d>%d<%d|%d>%d<%d|%d>%d<%d|", 
-                finalGrid[i][0], finalGrid[i][1], finalGrid[i][2], finalGrid[i][3], finalGrid[i][4], finalGrid[i][5], finalGrid[i][6], finalGrid[i][7], finalGrid[i][8]);
-                System.out.println(test);
-            } else {
-                String test = String.format("|%d %d %d|%d %d %d|%d %d %d|", 
-                finalGrid[i][0], finalGrid[i][1], finalGrid[i][2], finalGrid[i][3], finalGrid[i][4], finalGrid[i][5], finalGrid[i][6], finalGrid[i][7], finalGrid[i][8]);
-                System.out.println(test); 
-            }
-            if ((i+1) % 3 == 0){
-                System.out.println("+-----------------+");
-            }
-        }
-        
-    
-    }
 
     // Run the actual solver.
     void solveIt() {
         solve();
-        printFinal();
+        if (solutionCounter > 1) {
+            System.out.println(solutionCounter);
+        } else if (solutionCounter == 1){
+            print();
+        } else {
+            System.out.println("no solution sir");
+        }
     }
 
     public static void main(String[] args) {
