@@ -2,18 +2,17 @@
  * Class that solves the Asterisk Sudoku.
  * Prints the number of solutions of a Sudoku if there are multiple. If there is only a single solution, prints this solution instead.
  *
- * by <<TODO YOUR NAME AND ID HERE>>
- * and <<TODO YOUR PARTNERS NAME AND ID HERE>>
- * as group <<TODO GROUP NUMBER HERE>>
+ * by <<Gabrielius Rosinas 1655175>>
+ * and <<Tomas Sutavicius 1704915>>
+ * as group <<68>>
  */
+
 class SudokuSolver {
 
     int SUDOKU_SIZE = 9;          // Size of the grid.
     int SUDOKU_MIN_NUMBER = 1;    // Minimum digit to be filled in.
     int SUDOKU_MAX_NUMBER = 9;    // Maximum digit to be filled in.
     int SUDOKU_BOX_DIMENSION = 3; // Dimension of the boxes (sub-grids that should contain all digits).
-    // int rempty = 0;
-    // int cempty = 0;
 
     int[][] grid = new int[][] {  // The puzzle grid; 0 represents empty.
         { 7, 0, 0,   4, 0, 0,    2, 0, 0 },    // One solution.
@@ -102,16 +101,11 @@ class SudokuSolver {
 
     }
 
-   
-	int cempty = 0;
-    int rempty = 0;
 	// Finds the next empty square (in "reading order").
     int[] findEmptySquare() {
         for (int i = 0; i < 9; i++){
             for (int j = 0; j < 9; j++){
                 if (grid[i][j] == 0){
-                    cempty = j;
-                    rempty = i;
                     return new int[]{i,j};
                 }
             }
@@ -120,8 +114,8 @@ class SudokuSolver {
     }
 
     // Find all solutions for the grid, and stores the final solution.
-     void solve() {
-       int[] emptySquare = findEmptySquare();
+    void solve() {
+        int[] emptySquare = findEmptySquare();
         int r = emptySquare[0];
         int c = emptySquare[1];
         for (int i = 1; i <= 9; i++) {
@@ -135,10 +129,10 @@ class SudokuSolver {
                     solve();
                     grid[r][c] = 0;
                 } 
-            }
-                       
+            }         
         } 
     }
+
     void firstSolution() {
         finalGrid = new int[grid.length][grid.length];
         for (int i = 0; i < 9; i++) {
@@ -147,6 +141,7 @@ class SudokuSolver {
             }
         }
     }
+
     // Print the sudoku grid.
     void print(){
         grid = finalGrid;
@@ -177,7 +172,6 @@ class SudokuSolver {
         
     
     }
-
 
     // Run the actual solver.
     void solveIt() {
