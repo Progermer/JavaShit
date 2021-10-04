@@ -18,16 +18,10 @@ public class Cellulitis {
     boolean[] currentGen = new boolean[length + 2]; // init boolean array of length + 2 to account for borders
     boolean[] rulesBool = new boolean[8]; // boolean array for the U automaton rules
 
-<<<<<<< HEAD:Cellulitis.java
-    void draw(boolean[] generation){ //prints current generation
-        for (int i = 1; i < length + 1; i++ ){
-            if (generation[i]){
-=======
 
     void draw(boolean[] generation) { //prints current generation
         for (int i = 1; i < length + 1; i++ ){
             if (generation[i]) {
->>>>>>> d2ea0b36267093def19408909c3e1aad9a852ede:Assignments/Cellulitis.java
                 System.out.print("*");
             } else {
                 System.out.print(" ");
@@ -36,7 +30,6 @@ public class Cellulitis {
         System.out.println();
     }
 
-<<<<<<< HEAD:Cellulitis.java
     // boolean patternA(String z){ // pattern A
     //     switch(z){
     //         case ("111"):
@@ -64,35 +57,6 @@ public class Cellulitis {
     //             return false;
     //     }
     // }
-=======
-    boolean patternA(String z) { // pattern A
-        switch (z) {
-            case ("111"):
-                return false;
-            case ("010"):
-                return false;
-            case ("000"):
-                return false;
-            default:
-                return true;
-        }
-    }
-
-    boolean patternB(String z) { // pattern B
-        switch (z) {
-            case ("001"):
-                return true;
-            case ("010"):
-                return true;
-            case ("100"):
-                return true;
-            case ("110"):
-                return true;
-            default:
-                return false;
-        }
-    }
->>>>>>> d2ea0b36267093def19408909c3e1aad9a852ede:Assignments/Cellulitis.java
 
     boolean patternU(String z) { // custom pattern U
         switch (z) {
@@ -122,21 +86,9 @@ public class Cellulitis {
         for (int i = 1; i < length + 1; i++) { //creates cell neighbourhood pattern
             int left = (curGen[i - 1]) ? 1 : 0;
             int mid = (curGen[i]) ? 1 : 0;
-<<<<<<< HEAD:Cellulitis.java
             int right = (curGen[i+1]) ? 1 : 0;
             String pattern = String.valueOf(left) + String.valueOf(mid) + String.valueOf(right); //creates cell neighbourhood pattern
             nextGen[i] = patternU(pattern);
-=======
-            int right = (curGen[i + 1]) ? 1 : 0;
-            String pattern = String.valueOf(left) + String.valueOf(mid) + String.valueOf(right);
-            if (type.equals("A")) {
-                nextGen[i] = patternA(pattern);
-            } else if (type.equals("B")) {
-                nextGen[i] = patternB(pattern);
-            } else if (type.equals("U")) {
-                nextGen[i] = patternU(pattern);
-            }   
->>>>>>> d2ea0b36267093def19408909c3e1aad9a852ede:Assignments/Cellulitis.java
         }
         return nextGen;
     }
@@ -153,13 +105,8 @@ public class Cellulitis {
                 input = sc.next();
             }
         }
-<<<<<<< HEAD:Cellulitis.java
-        if (type.equals("U")) {
-            for ( int j = 0; j < 8; j++ ){
-=======
         if (type.equals("U")) { // initializes the rules for automaton type U
             for ( int j = 0; j < 8; j++ ) {
->>>>>>> d2ea0b36267093def19408909c3e1aad9a852ede:Assignments/Cellulitis.java
                 if (sc.nextInt() == 1){
                     rulesBool[j] = true;
                 } else {
