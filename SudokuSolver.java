@@ -15,17 +15,17 @@ class SudokuSolver {
     int SUDOKU_BOX_DIMENSION = 3; // Dimension of the boxes (sub-grids that should contain all digits).
 
     int[][] grid = new int[][] {  // The puzzle grid; 0 represents empty.
-        { 0, 0, 0,   2, 0, 0,    0, 1, 0 },    // One solution.
-        { 0, 0, 0,   0, 0, 0,    0, 7, 9 },
-        { 0, 0, 0,   1, 0, 7,    0, 3, 5 },
+        { 0, 9, 0,   7, 3, 0,    4, 0, 0 },    // One solution.
+        { 0, 0, 0,   0, 0, 0,    5, 0, 0 },
+        { 3, 0, 0,   0, 0, 6,    0, 0, 0 },
 
-        { 0, 1, 4,   3, 6, 0,    0, 1, 0 },
-        { 7, 0, 0,   0, 0, 0,    0, 7, 0 },
-        { 0, 0, 0,   0, 1, 2,    0, 9, 1 },
+        { 0, 0, 0,   0, 0, 2,    6, 4, 0 },
+        { 0, 0, 0,   6, 5, 1,    0, 0, 0 },
+        { 0, 0, 6,   9, 0, 7,    0, 0, 0 },
 
-        { 0, 9, 0,   4, 0, 0,    0, 0, 0 },
-        { 0, 0, 6,   7, 0, 0,    0, 0, 0 },
-        { 0, 0, 0,   0, 0, 6,    0, 0, 0 },
+        { 5, 8, 0,   0, 0, 0,    0, 0, 0 },
+        { 9, 0, 0,   0, 0, 3,    0, 2, 5 },
+        { 6, 0, 3,   0, 0, 0,    8, 0, 0 },
     };
     
     int[][] finalGrid = new int[9][9];
@@ -178,9 +178,9 @@ class SudokuSolver {
             System.out.println(solutionCounter);
         } else if (solutionCounter == 1) {
             print();
-        } else {
-            System.out.println("no solution sir");
-        }
+        } //else {
+            //System.out.println("no solution sir");
+        //}
     }
 
     public static void main(String[] args) {
