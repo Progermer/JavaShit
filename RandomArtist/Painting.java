@@ -34,6 +34,7 @@ public class Painting extends JPanel implements ActionListener {
     final static Random random = new Random( SEED ); // random generator to be used by all classes
     int randomNum = random.nextInt(30) + 10; // minimum number of shapes 10, maximum number = 40
     int numberOfRegenerates = 0;
+    int[] shapeVal;
 
 
    /*---- Screenshots ----
@@ -55,8 +56,15 @@ public class Painting extends JPanel implements ActionListener {
         super.paintComponent(g);     // clears the panel
         // draw all shapes
         // TODO
+        int boob = 0;
+        int shapeFour = 0;
+        ArrayList<Dingus> drawings = new ArrayList<>;
+        // while (boob < randomNum || shapeFour < 4 ){}
         for (int i = 0; i < shapes.size()/4; i++){
-            shapes.get(random.nextInt(shapes.size())).draw(g);
+            Dingus shape = shapes.get(random.nextInt(shapes.size()));
+            drawings.add(shape);
+            shape.draw(g);
+            for (int j = 0; j < )
         }
     }
 
