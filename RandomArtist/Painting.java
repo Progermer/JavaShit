@@ -43,16 +43,8 @@ public class Painting extends JPanel implements ActionListener {
     String filename = "randomshot_"; // prefix
     
    /*---- Dinguses ----*/
-    ArrayList<Dingus> shapes = new ArrayList<Dingus>();
-    Dingus DD = new DingusDingus();
-    shapes.add(DD)
-    // int counter = 0;
-    // int uniqueShapes = 0;
-    // while(counter < randomNum && uniqueShapes <= 4 ) {
-        
-    // }
-    //...
-
+    ArrayList<Dingus> shapes = new ArrayList<>();
+    
     public Painting() {
         setPreferredSize(new Dimension(800, 450)); // make panel 800 by 450 pixels.
         //...
@@ -63,6 +55,9 @@ public class Painting extends JPanel implements ActionListener {
         super.paintComponent(g);     // clears the panel
         // draw all shapes
         // TODO
+        // for (int i = 0; i < shapes.size(); i++){
+        //     shapes.get(i).draw(g);
+        // }
     }
 
     /**
@@ -83,11 +78,22 @@ public class Painting extends JPanel implements ActionListener {
         
         // clear the shapes list
         // TODO
+        shapes.clear();
 
         // create random shapes
-        // TODO
+        for (int i = 0; i < 25; i++){
+            Dingus CircleD = new CircleDingus(800,450);
+            shapes.add(CircleD);
+            // Dingus DingusD = new DingusDingus(800,450);
+            // shapes.add(DingusD);
+            Dingus SquareD = new SquareDingus(800,450);
+            shapes.add(SquareD);
+            Dingus TreeD = new TreeDingus(800,450);
+            shapes.add(CircleD);
+        }
+        
     }
-
+        // TODO
     /** 
      * saves a screenshot of a Component on disk
      *  overides existing files

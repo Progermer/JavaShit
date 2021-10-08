@@ -24,6 +24,8 @@ abstract class Dingus {
 
     /** maximal coordinates; drawing area is (0,0)- (maxX,maxY) **/
     int maxX, maxY;
+    int maxRGB = 255;
+
 
     /**
      * initializes color and position to random values
@@ -35,8 +37,9 @@ abstract class Dingus {
         // initialize to a random position
         x = random.nextInt(maxX);
         y = random.nextInt(maxY);
-        // initialize to a random color
-        // TODO
+        
+        //initializes to a random color, ok swag
+        color = new Color(random.nextInt(maxRGB),random.nextInt(maxRGB),random.nextInt(maxRGB));
     }
 
     abstract void draw(Graphics g);

@@ -1,3 +1,4 @@
+package Assignments;
 /**
  * Class that solves the Asterisk Sudoku.
  * Prints the number of solutions of a Sudoku if there are multiple. If there is only a single solution, prints this solution instead.
