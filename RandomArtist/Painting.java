@@ -89,7 +89,7 @@ public class Painting extends JPanel implements ActionListener {
             Dingus SquareD = new SquareDingus(800,450);
             shapes.add(SquareD);
             Dingus TreeD = new TreeDingus(800,450);
-            shapes.add(CircleD);
+            shapes.add(TreeD);
         }
         
     }
