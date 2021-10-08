@@ -55,9 +55,9 @@ public class Painting extends JPanel implements ActionListener {
         super.paintComponent(g);     // clears the panel
         // draw all shapes
         // TODO
-        // for (int i = 0; i < shapes.size(); i++){
-        //     shapes.get(i).draw(g);
-        // }
+        for (int i = 0; i < shapes.size()/4; i++){
+            shapes.get(random.nextInt(shapes.size())).draw(g);
+        }
     }
 
     /**
