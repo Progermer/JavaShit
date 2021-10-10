@@ -45,9 +45,11 @@ public class Painting extends JPanel implements ActionListener {
     
    /*---- Dinguses ----*/
     ArrayList<Dingus> shapes = new ArrayList<>();
+    ArrayList<Dingus> stars = new ArrayList<>();
     
     public Painting() {
         setPreferredSize(new Dimension(800, 450)); // make panel 800 by 450 pixels.
+        //setSize(new Dimension(800, 450)); // make panel 800 by 450 pixels.
         //...
     }
 
@@ -57,15 +59,34 @@ public class Painting extends JPanel implements ActionListener {
         // draw all shapes
         // TODO
         int boob = 0;
-        int shapeFour = 0;
-        ArrayList<Dingus> drawings = new ArrayList<>;
+        int shapeFour = 1;
+        ArrayList<Dingus> drawings = new ArrayList<>();
+        Dingus bg = new BackgroundDingus(800,450);
+        bg.draw(g);
+
         // while (boob < randomNum || shapeFour < 4 ){}
-        for (int i = 0; i < shapes.size()/4; i++){
-            Dingus shape = shapes.get(random.nextInt(shapes.size()));
-            drawings.add(shape);
-            shape.draw(g);
-            for (int j = 0; j < )
+        for (int s = 0; s < 200; s++) {
+            stars.get(s).draw(g);
         }
+        for (int i = 0; i < randomNum; i++){
+            Dingus shape = shapes.get(random.nextInt(shapes.size()));
+            shape.draw(g);
+            if(i == 0) {
+                shapeFour++;
+               
+            }
+            boolean notSameClass = true;
+            for (int j = 0; j < i; j++ ) {
+                if(drawings.get(j).getClass() == shape.getClass()) {
+                    notSameClass = false;
+                }
+            }
+            if(i > 0 && notSameClass) {
+                shapeFour++;
+            }
+            drawings.add(shape);
+        }
+        System.out.print(shapeFour);
     }
 
     /**
@@ -87,17 +108,30 @@ public class Painting extends JPanel implements ActionListener {
         // clear the shapes list
         // TODO
         shapes.clear();
+        stars.clear();
 
         // create random shapes
         for (int i = 0; i < 25; i++){
-            Dingus CircleD = new CircleDingus(800,450);
-            shapes.add(CircleD);
-            // Dingus DingusD = new DingusDingus(800,450);
-            // shapes.add(DingusD);
-            Dingus SquareD = new SquareDingus(800,450);
-            shapes.add(SquareD);
-            Dingus TreeD = new TreeDingus(800,450);
-            shapes.add(TreeD);
+            // Dingus CircleD = new CircleDingus(800,450);
+            // shapes.add(CircleD);
+            // Dingus SquareD = new SquareDingus(800,450);
+            // shapes.add(SquareD);
+            // Dingus TreeD = new TreeDingus(800,450);
+            // shapes.add(TreeD);
+            Dingus UFOD = new UFODingus(800, 450);
+            shapes.add(UFOD);
+            Dingus SaturnD = new SaturnDingus(800, 450);
+            shapes.add(SaturnD);
+        }
+        for (int i = 0; i < 400; i++) {
+            if (i % 4 == 0) {
+            Dingus star = new StarDingus(800,450);
+            stars.add(star);
+            }
+            Dingus smallStar1 = new SmallStarDingus(800,450);
+            stars.add(smallStar1);
+            Dingus smallStar2 = new SmallStarDingus(800,450);
+            stars.add(smallStar2);
         }
         
     }
