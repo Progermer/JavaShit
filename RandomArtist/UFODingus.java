@@ -18,8 +18,8 @@ class UFODingus extends Dingus {
         width = random.nextInt(30)+30;
         height = width/7;
         // initialize randomly the CircleDingus properties, i.e., radius and filledness
-    
     }
+  
     @Override
     void draw(Graphics g) {
         g.setColor(window);
