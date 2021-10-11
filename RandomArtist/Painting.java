@@ -7,6 +7,10 @@ package RandomArtist;
  * @author huub
  * @author kees
  */
+// by <<Gabrielius Rosinas 1655175>>
+// and <<Tomas Sutavicius 1704915>>
+// as group <<68>>
+
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -57,47 +61,18 @@ public class Painting extends JPanel implements ActionListener {
     protected void paintComponent(Graphics g) { // draw all your shapes
         super.paintComponent(g);     // clears the panel
         // draw all shapes
-        // TODO
-        int boob = 0;
-        int shapeFour = 1;
-        ArrayList<Dingus> drawings = new ArrayList<>();
         Dingus bg = new BackgroundDingus(800,450);
         bg.draw(g);
-
-        // while (boob < randomNum || shapeFour < 4 ){}
-<<<<<<< HEAD
-        
-
         for (int s = 0; s < randomNum * 10; s++) {
-=======
-        for (int s = 0; s < 200; s++) {
->>>>>>> a46ee56cf775862b65f7ca3615d678437807647f
             stars.get(s).draw(g);
         }
         for (int i = 0; i < randomNum; i++){
             Dingus shape = shapes.get(random.nextInt(shapes.size()));
             shape.draw(g);
-            if(i == 0) {
-                shapeFour++;
-               
-            }
-            boolean notSameClass = true;
-            for (int j = 0; j < i; j++ ) {
-                if(drawings.get(j).getClass() == shape.getClass()) {
-                    notSameClass = false;
-                }
-            }
-            if(i > 0 && notSameClass) {
-                shapeFour++;
-            }
-            drawings.add(shape);
         }
-        System.out.print(shapeFour);
     }
 
-    /**
-     * reaction to button press
-     */
+    // reaction to button press
     @Override
     public void actionPerformed(ActionEvent e) {
         if ( "Regenerate".equals(e.getActionCommand()) ) {
@@ -110,42 +85,40 @@ public class Painting extends JPanel implements ActionListener {
 
     void regenerate() {
         numberOfRegenerates++; // do not change
-        
-        // clear the shapes list
-        // TODO
-        shapes.clear();
+        shapes.clear(); // clear the shapes list
         stars.clear();
 
         // create random shapes
         for (int i = 0; i < 25; i++){
-            // Dingus CircleD = new CircleDingus(800,450);
-            // shapes.add(CircleD);
-            // Dingus SquareD = new SquareDingus(800,450);
-            // shapes.add(SquareD);
-            // Dingus TreeD = new TreeDingus(800,450);
-            // shapes.add(TreeD);
             Dingus UFOD = new UFODingus(800, 450);
             shapes.add(UFOD);
             Dingus SaturnD = new SaturnDingus(800, 450);
             shapes.add(SaturnD);
+            Dingus stupidDumbPlanet = new CirclePlanetDingus(800,450);
+            shapes.add(stupidDumbPlanet);
+            Dingus amogus = new Amingus(800, 450);
+            shapes.add(amogus);
+            if (i % 2 == 0) {
+                Dingus satellite = new SatelliteDingus(800, 450);
+                shapes.add(satellite);
+            } 
         }
+
         for (int i = 0; i < 400; i++) {
             if (i % 4 == 0) {
-            Dingus star = new StarDingus(800,450);
-            stars.add(star);
-<<<<<<< HEAD
+                Dingus star = new StarDingus(800,450);
+                stars.add(star);
             } 
             if (i % 10 == 0) {
                 Dingus smallPlanet = new SmallSaturnDingus(800,450);
                 stars.add(smallPlanet);
-=======
->>>>>>> a46ee56cf775862b65f7ca3615d678437807647f
             }
             Dingus smallStar1 = new SmallStarDingus(800,450);
             stars.add(smallStar1);
             Dingus smallStar2 = new SmallStarDingus(800,450);
+            stars.add(smallStar2);
+        }
     }
-        // TODO
     /** 
      * saves a screenshot of a Component on disk
      *  overides existing files
