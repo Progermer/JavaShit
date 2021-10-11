@@ -1,6 +1,4 @@
 package RandomArtist;
-
-// TO BE COMPLETED 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
@@ -25,8 +23,6 @@ abstract class Dingus {
     /** maximal coordinates; drawing area is (0,0)- (maxX,maxY) **/
     int maxX, maxY;
     int maxRGB = 255;
-    // int locX = random.nextInt(maxX - 30) + 30 ;
-    // int locY = random.nextInt(maxY - 30) + 30;
 
 
     /**
@@ -34,13 +30,11 @@ abstract class Dingus {
      *
      * @param maxX, maxY - give maximum values for the position
      */    
-     public Dingus(int maxX, int maxY) {
+    public Dingus(int maxX, int maxY) {
         this.maxX = maxX; this.maxY = maxY;
         // initialize to a random position
         x = random.nextInt(maxX);
         y = random.nextInt(maxY);
-        
-        
         //initializes to a random color, ok swag
         color = new Color(random.nextInt(maxRGB),random.nextInt(maxRGB),random.nextInt(maxRGB));
     }

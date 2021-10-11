@@ -1,13 +1,10 @@
 package RandomArtist;
-
-/**
- * SmallSaturnDingus -- part of HA RandomArtist
- * example of a very simple Dingus
- * @author huub
- */
-
 import java.awt.Graphics;
 import java.awt.Color;
+
+// by <<Gabrielius Rosinas 1655175>>
+// and <<Tomas Sutavicius 1704915>>
+// as group <<68>>
 
 class SmallSaturnDingus extends Dingus {
     protected int radius;

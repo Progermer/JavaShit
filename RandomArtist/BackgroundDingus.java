@@ -1,7 +1,10 @@
 package RandomArtist;
-
 import java.awt.Color;
 import java.awt.Graphics;
+
+// by <<Gabrielius Rosinas 1655175>>
+// and <<Tomas Sutavicius 1704915>>
+// as group <<68>>
 
 class BackgroundDingus extends Dingus {
     protected int width;
@@ -18,7 +21,7 @@ class BackgroundDingus extends Dingus {
     @Override
     void draw(Graphics g) {
         g.setColor(Color.BLACK);
-            g.fillRect(0, 0, width, length);
+        g.fillRect(0, 0, width, length);
  
     }
 }

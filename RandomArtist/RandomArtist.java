@@ -6,6 +6,10 @@ package RandomArtist;
  * @author kees
  * @author huub
  */
+// by <<Gabrielius Rosinas 1655175>>
+// and <<Tomas Sutavicius 1704915>>
+// as group <<68>>
+
 
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
