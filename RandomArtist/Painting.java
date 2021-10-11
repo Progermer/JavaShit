@@ -110,14 +110,14 @@ public class Painting extends JPanel implements ActionListener {
 
         // create random shapes
         for (int i = 0; i < 25; i++){
-            // Dingus UFOD = new UFODingus(800, 450);
-            // shapes.add(UFOD);
-            // Dingus SaturnD = new SaturnDingus(800, 450);
-            // shapes.add(SaturnD);
-            // Dingus amogus = new Amingus(800, 450);
-            // shapes.add(amogus);
-            // Dingus supidPlanet = new CirclePlanetDingus(800,450);
-            // shapes.add(supidPlanet);
+            Dingus UFOD = new UFODingus(800, 450);
+            shapes.add(UFOD);
+            Dingus SaturnD = new SaturnDingus(800, 450);
+            shapes.add(SaturnD);
+            Dingus amogus = new Amingus(800, 450);
+            shapes.add(amogus);
+            Dingus supidPlanet = new CirclePlanetDingus(800,450);
+            shapes.add(supidPlanet);
        
         }
         for (int i = 0; i < 400; i++) {

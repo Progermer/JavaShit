@@ -18,11 +18,7 @@ class UFODingus extends Dingus {
     public UFODingus(int maxX, int maxY) {
         // intialize randomly the Dingus properties, i.e., position and color
         super(maxX, maxY);
-<<<<<<< Updated upstream
-        width = random.nextInt(100);
-=======
         width = random.nextInt(30)+30;
->>>>>>> Stashed changes
         height = width/7;
         // initialize randomly the CircleDingus properties, i.e., radius and filledness
     

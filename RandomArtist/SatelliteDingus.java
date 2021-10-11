@@ -18,9 +18,6 @@ class SatelliteDingus extends Dingus{
 
     @Override
     void draw(Graphics g) {
-        
-        // g.drawLine(x+width/2, y, x+width/2, y+height);
-        // g.drawLine(x, y+height/4, x+width, y+height/4);
         g.setColor(color);
         g.fillRect(x, y+((1/4)*height), width, (1/4)*height);
         g.setColor(body);
