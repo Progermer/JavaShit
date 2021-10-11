@@ -58,16 +58,23 @@ public class Painting extends JPanel implements ActionListener {
         super.paintComponent(g);     // clears the panel
         // draw all shapes
         // TODO
-        int boob = 0;
         int shapeFour = 1;
         ArrayList<Dingus> drawings = new ArrayList<>();
         Dingus bg = new BackgroundDingus(800,450);
         bg.draw(g);
+<<<<<<< Updated upstream
 
         // while (boob < randomNum || shapeFour < 4 ){}
         for (int s = 0; s < 200; s++) {
+=======
+         
+  
+            
+        for (int s = 0; s < randomNum * 10; s++) {
+>>>>>>> Stashed changes
             stars.get(s).draw(g);
         }
+        
         for (int i = 0; i < randomNum; i++){
             Dingus shape = shapes.get(random.nextInt(shapes.size()));
             shape.draw(g);
@@ -104,38 +111,48 @@ public class Painting extends JPanel implements ActionListener {
 
     void regenerate() {
         numberOfRegenerates++; // do not change
-        
-        // clear the shapes list
-        // TODO
         shapes.clear();
         stars.clear();
 
         // create random shapes
         for (int i = 0; i < 25; i++){
-            // Dingus CircleD = new CircleDingus(800,450);
-            // shapes.add(CircleD);
-            // Dingus SquareD = new SquareDingus(800,450);
-            // shapes.add(SquareD);
-            // Dingus TreeD = new TreeDingus(800,450);
-            // shapes.add(TreeD);
-            Dingus UFOD = new UFODingus(800, 450);
-            shapes.add(UFOD);
-            Dingus SaturnD = new SaturnDingus(800, 450);
-            shapes.add(SaturnD);
+            // Dingus UFOD = new UFODingus(800, 450);
+            // shapes.add(UFOD);
+            // Dingus SaturnD = new SaturnDingus(800, 450);
+            // shapes.add(SaturnD);
+            // Dingus amogus = new Amingus(800, 450);
+            // shapes.add(amogus);
+            // Dingus supidPlanet = new CirclePlanetDingus(800,450);
+            // shapes.add(supidPlanet);
+       
         }
         for (int i = 0; i < 400; i++) {
             if (i % 4 == 0) {
             Dingus star = new StarDingus(800,450);
             stars.add(star);
+<<<<<<< Updated upstream
+=======
+            } 
+            if (i % 10 == 0) {
+                Dingus smallPlanet = new SmallSaturnDingus(800, 450);
+                stars.add(smallPlanet);
+>>>>>>> Stashed changes
             }
-            Dingus smallStar1 = new SmallStarDingus(800,450);
+            Dingus smallStar1 = new SmallStarDingus(800, 450);
             stars.add(smallStar1);
             Dingus smallStar2 = new SmallStarDingus(800,450);
             stars.add(smallStar2);
+<<<<<<< Updated upstream
         }
         
+=======
+            Dingus satellite1 = new SatelliteDingus(800, 450);
+            shapes.add(satellite1);
+            Dingus satellite2 = new SatelliteDingus(800, 450);
+            shapes.add(satellite2);
+        }
+>>>>>>> Stashed changes
     }
-        // TODO
     /** 
      * saves a screenshot of a Component on disk
      *  overides existing files
