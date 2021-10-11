@@ -65,7 +65,13 @@ public class Painting extends JPanel implements ActionListener {
         bg.draw(g);
 
         // while (boob < randomNum || shapeFour < 4 ){}
+<<<<<<< HEAD
+        
+
+        for (int s = 0; s < randomNum * 10; s++) {
+=======
         for (int s = 0; s < 200; s++) {
+>>>>>>> a46ee56cf775862b65f7ca3615d678437807647f
             stars.get(s).draw(g);
         }
         for (int i = 0; i < randomNum; i++){
@@ -127,13 +133,17 @@ public class Painting extends JPanel implements ActionListener {
             if (i % 4 == 0) {
             Dingus star = new StarDingus(800,450);
             stars.add(star);
+<<<<<<< HEAD
+            } 
+            if (i % 10 == 0) {
+                Dingus smallPlanet = new SmallSaturnDingus(800,450);
+                stars.add(smallPlanet);
+=======
+>>>>>>> a46ee56cf775862b65f7ca3615d678437807647f
             }
             Dingus smallStar1 = new SmallStarDingus(800,450);
             stars.add(smallStar1);
             Dingus smallStar2 = new SmallStarDingus(800,450);
-            stars.add(smallStar2);
-        }
-        
     }
         // TODO
     /** 
