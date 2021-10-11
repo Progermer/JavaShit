@@ -29,6 +29,11 @@ class CirclePlanetDingus extends Dingus {
         colors1[2] = new Color(51, 92, 43);
         colors1[3] = new Color(112, 105, 104);
         Color[] colors2 = new Color[4];
+        colors2[0] = new Color(36, 5, 24);
+        colors2[1] = new Color(59, 73, 161);
+        colors2[2] = new Color(51, 92, 43);
+        colors2[3] = new Color(112, 105, 104);
+
 
     }
 
