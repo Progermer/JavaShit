@@ -22,6 +22,7 @@ class CirclePlanetDingus extends Dingus {
 
     @Override
     void draw(Graphics g) {
+        // "random" colors are two sets of 4 colors which alternate with each circle
         Color[] colors1 = new Color[4];
         colors1[0] = new Color(252, 177, 237);
         colors1[1] = new Color(19, 161, 154);

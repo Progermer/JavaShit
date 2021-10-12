@@ -61,8 +61,11 @@ public class Painting extends JPanel implements ActionListener {
     protected void paintComponent(Graphics g) { // draw all your shapes
         super.paintComponent(g);     // clears the panel
         // draw all shapes
+        //background is printed first
         Dingus bg = new BackgroundDingus(800,450);
         bg.draw(g);
+        //stars and small planets will be in the background of other shapes so printed first, random numb,
+        //but many more than other shapes
         for (int s = 0; s < randomNum * 10; s++) {
             stars.get(s).draw(g);
         }
@@ -103,7 +106,7 @@ public class Painting extends JPanel implements ActionListener {
                 shapes.add(satellite);
             } 
         }
-
+        // stars will always be present, so 400 * 2 + 100 stars and 40 planets will be created
         for (int i = 0; i < 400; i++) {
             if (i % 4 == 0) {
                 Dingus star = new StarDingus(800,450);

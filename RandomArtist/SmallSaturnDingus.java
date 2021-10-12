@@ -18,7 +18,7 @@ class SmallSaturnDingus extends Dingus {
         // intialize randomly the Dingus properties, i.e., position and color
         super(maxX, maxY);
         // initialize randomly the SmallSaturnDingus properties, i.e., radius and filledness
-        radius = random.nextInt(maxX/40) + 10;
+        radius = random.nextInt(maxX/40) + 10; // max value is smaller, so planet is smaller
         filled = random.nextBoolean();
     }
 

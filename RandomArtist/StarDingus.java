@@ -15,6 +15,7 @@ public class StarDingus extends Dingus {
 
     @Override
     void draw(Graphics g) {
+        //Stars are made with 2 triangles
         Color[] colors = new Color[4];
         colors[0] = new Color(255,255,224);
         colors[1] = new Color(255,255,204);

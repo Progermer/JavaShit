@@ -20,6 +20,8 @@ class SaturnDingus extends Dingus {
 
     @Override
     void draw(Graphics g) {
+        // Saturn is the coolest planet, so in our universe there are many versions of it
+        //planet random color, but ring is always gold
         g.setColor(color);
         g.fillArc(x, y, radius, radius,0, 360);
         g.setColor(Color.YELLOW);

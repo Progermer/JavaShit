@@ -9,7 +9,7 @@ import java.awt.Color;
 class UFODingus extends Dingus {
     protected int width;
     protected int height;
-    protected Color window = new Color(176,176,176);
+    protected Color window = new Color(176,176,176); // window color is grey
     
 
     public UFODingus(int maxX, int maxY) {
@@ -22,6 +22,7 @@ class UFODingus extends Dingus {
   
     @Override
     void draw(Graphics g) {
+        // ufo made of two filled arcs
         g.setColor(window);
         g.fillArc(x + width/4, y, width/2, height, 0, 180);
         g.setColor(color);

@@ -19,6 +19,7 @@ class SatelliteDingus extends Dingus{
 
     @Override
     void draw(Graphics g) {
+        //satellite created, constant color of body, colorful wings
         g.setColor(color);
         g.fillRect(x, y+(height/4), width, (height/4));
         g.setColor(body);

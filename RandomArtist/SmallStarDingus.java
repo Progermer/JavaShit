@@ -15,6 +15,7 @@ public class SmallStarDingus extends Dingus {
     }
     @Override
     void draw(Graphics g) {
+        //since ratio is very specific, small stars are created
         Color[] colors = new Color[4];
         colors[0] = new Color(255,255,224);
         colors[1] = new Color(255,255,204);

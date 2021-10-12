@@ -20,6 +20,7 @@ class BackgroundDingus extends Dingus {
 
     @Override
     void draw(Graphics g) {
+        //Space is black so background will be black lol
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, width, length);
  
