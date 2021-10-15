@@ -20,15 +20,23 @@ import javax.swing.JButton;
 
 class PrisonersDilemma /* possible extends... */ {
     //...
-    private JFrame frame;
+    JFrame frame;
+    JButton goButton, pauseButton;
+    PlayingField playingField;
+    int maxX = 450;
+    int maxY = 800;
     void buildGUI() {
         SwingUtilities.invokeLater((new Runnable() {
             @Override
             public void run() {
-                // painting = new Painting();
+                playingField = new PlayingField();
                 frame = new JFrame("Prisoner's Dilemma");
-                // frame.add(painting, BorderLayout.CENTER);
-                // regenerateButton = new JButton("Regenerate");
+                frame.add(playingField, BorderLayout.CENTER);
+                goButton = new JButton("GO");
+                frame.add(goButton, BorderLayout.SOUTH);
+                pauseButton = new JButton("PAUSE");
+                pauseButton.setBounds(maxX/2, maxY, 30, 20);
+                frame.add(pauseButton);
                 // regenerateButton.addActionListener(painting); // painting provides reaction to buttonclick
                 // frame.add(regenerateButton, BorderLayout.SOUTH);
                 // shotButton = new JButton("Screenshot");

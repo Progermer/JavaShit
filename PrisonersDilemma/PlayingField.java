@@ -12,13 +12,27 @@ package PrisonersDilemma;
  * assignment copyright Kees Huizing
  */
 
-import java.util.Random;
-import javax.swing.JPanel;
 import javax.swing.Timer;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Random;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+
 class PlayingField extends JPanel /* possible implements ... */ {
+
+    public PlayingField(){
+        setPreferredSize(new Dimension(800, 450));
+    }
     
+
     private Patch[][] grid;
     
     private double alpha; // defection award factor
