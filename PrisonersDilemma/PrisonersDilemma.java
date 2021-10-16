@@ -12,16 +12,21 @@ package PrisonersDilemma;
  * assignment copyright Kees Huizing
  */
 
-import java.awt.BorderLayout;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
 import javax.swing.SwingUtilities;
 import javax.swing.JButton;
+import java.awt.*;
+
 
 
 class PrisonersDilemma /* possible extends... */ {
     //...
     JFrame frame;
     JButton goButton, pauseButton;
+    JPanel buttons;
+    JSlider slider;
     PlayingField playingField;
     int maxX = 450;
     int maxY = 800;
@@ -29,23 +34,23 @@ class PrisonersDilemma /* possible extends... */ {
         SwingUtilities.invokeLater((new Runnable() {
             @Override
             public void run() {
+                // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                // FlowLayout test = new FlowLayout();
+                // buttons.setLayout(test);
+                // buttons.add(new JButton("GO"));
+                // buttons.add(new JButton("Pause"));
+                // buttons.add(new JButton("Reset"));
+            //     buttons.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+
                 playingField = new PlayingField();
                 frame = new JFrame("Prisoner's Dilemma");
                 frame.add(playingField, BorderLayout.CENTER);
-                goButton = new JButton("GO");
-                frame.add(goButton, BorderLayout.SOUTH);
-                pauseButton = new JButton("PAUSE");
-                pauseButton.setBounds(maxX/2, maxY, 30, 20);
-                frame.add(pauseButton);
-                // regenerateButton.addActionListener(painting); // painting provides reaction to buttonclick
-                // frame.add(regenerateButton, BorderLayout.SOUTH);
-                // shotButton = new JButton("Screenshot");
-                // shotButton.addActionListener(painting);
-                // frame.add(shotButton, BorderLayout.NORTH);
+                slider = new JSlider(0, 3, 0);
+                frame.add(slider, BorderLayout.SOUTH);
+            //     frame.add(buttons, BorderLayout.SOUTH);
                 frame.pack();
-                // painting.regenerate(); // can be done here since painting has a size!
                 frame.setVisible(true);
-            }
+                }
         } ));
     }
     
