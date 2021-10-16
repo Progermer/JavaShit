@@ -33,8 +33,14 @@ class PlayingField extends JPanel /* possible implements ... */ {
     }
     
 
-    private Patch[][] grid;
+    private Patch[][] grid = new Patch[52][52]; // + 2 for borders
+    private ArrayList<Patch> neighbours = new ArrayList<>();
+
     
+    //initialize grid of objects
+    private int minX = 1; private int minY = 1; 
+    private int maxX = 51; private int maxY = 51;
+
     private double alpha; // defection award factor
     
     private Timer timer;
@@ -48,8 +54,50 @@ class PlayingField extends JPanel /* possible implements ... */ {
     /**
      * calculate and execute one step in the simulation 
      */
-    public void step( ) {
-        //...
+
+    public void initGrid() {
+        for (int j = minY; j <= maxY; j++){
+            for (int i = minX; i <= maxX; i++) {
+                grid[i][j] = new Patch(random.nextBoolean(), i, j);
+            }
+        }
+        for (int j = minY; j <= maxY; j++){
+            for (int i = minX; i <= maxX; i++) {
+                neighbours.add(grid[j-1][i-1]); // top left
+                neighbours.add(grid[j][i-1]); // top
+                neighbours.add(grid[j+1][i-1]); // top right
+                neighbours.add(grid[j-1][i]); // left
+                neighbours.add(grid[j+1][i]); // right
+                neighbours.add(grid[j-1][i+1]); // bottom left
+                neighbours.add(grid[j][i+1]); // bottom 
+                neighbours.add(grid[j+1][i+1]); // bootom right
+                grid[i][j].initNeighbours(neighbours);
+                neighbours.clear();
+            }
+        }
+    }
+
+    public void setBorder(){
+        grid[0][0] = grid[maxX][maxY]; // top left border
+        grid[maxX+1][0] = grid[minX][maxY]; // top right border
+        grid[0][maxY+1] = grid[maxX][minY]; // bottom left border
+        grid[maxX+1][maxY+1] = grid[minX][minY]; // bottom right border
+        for (int i = 1; i <= maxX; i++){ // copies bottom values to top border
+            grid[i][0] = grid[i][maxY];
+        }
+        for (int i = 1; i <= maxX; i++){ // copies top values to bottom border
+            grid[i][maxY+1] = grid[1][minY];
+        }
+        for (int i = 1; i <= maxX; i++){ // copies left values to right border
+            grid[maxX+1][i] = grid[minX][i];
+        }
+        for (int i = 1; i <= maxX; i++){ // copies right values to left border
+            grid[0][i] = grid[maxX][i];
+        }
+
+    }
+    public void step() {
+        
     }
     
     public void setAlpha( double alpha ) {
@@ -61,6 +109,7 @@ class PlayingField extends JPanel /* possible implements ... */ {
         return 0.0; // CHANGE THIS
     }
     
+    // probably just used for printing
     // return grid as 2D array of booleans
     // true for cooperators, false for defectors
     // precondition: grid is rectangular, has non-zero size and elements are non-null
@@ -78,7 +127,7 @@ class PlayingField extends JPanel /* possible implements ... */ {
     // sets grid according to parameter inGrid
     // a patch should become cooperating if the corresponding
     // item in inGrid is true
-    public void setGrid( boolean[][] inGrid) {
+    public void setGrid(boolean[][] inGrid) {
         // ...
     }   
 }

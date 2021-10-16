@@ -12,34 +12,46 @@ package PrisonersDilemma;
  * assignment copyright Kees Huizing
  */
 
+import java.util.ArrayList;
+
 class Patch {
     //...
+    private int xCord, yCord;
+    private boolean IsC = false;
+    private double currentScore = 0;
+    private double nextScore = 0;
+    private ArrayList<Patch> neighbours = new ArrayList<>();
     
-    boolean IsC = false;
-    double currentScore = 0;
-    double nextScore = 0;
-    int x,y;
+    public Patch(boolean IsC, int x, int y){
+        this.setCooperating(IsC);
+        this.xCord = x; this.yCord = y;
+    }
+   
 
-    
+
+
+    void initNeighbours(ArrayList<Patch> Neighbours){
+        this.neighbours = Neighbours;
+
+    }
     // returns true if and only if patch is cooperating
     boolean isCooperating() {
-        //...
-        return false; // CHANGE THIS
+        return this.IsC;
     }
     
     // set strategy to C if isCooperating is true and to D if false
     void setCooperating(boolean isC) {
-        //...
+        this.IsC = isC;
     }
     
     // change strategy from C to D and vice versa
     void toggleStrategy() {
-        // ...
+        this.IsC = !(this.IsC);
     }
     
     // return currentScore of this patch in current round
     double getcurrentScore(double alpha) {
-        
+
 
 
 

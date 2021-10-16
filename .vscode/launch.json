@@ -1,0 +1,160 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cellulitis",
+            "request": "launch",
+            "mainClass": "Assignments.Cellulitis",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch Circle",
+            "request": "launch",
+            "mainClass": "Assignments.Circle",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch GuessingGame",
+            "request": "launch",
+            "mainClass": "Assignments.GuessingGame",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch GuessingGameAdvanced",
+            "request": "launch",
+            "mainClass": "Assignments.GuessingGameAdvanced",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch SudokuSolver",
+            "request": "launch",
+            "mainClass": "Assignments.SudokuSolver",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch PrisonersDilemma",
+            "request": "launch",
+            "mainClass": "PrisonersDilemma.PrisonersDilemma",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "PrisonersDilemma.test",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch RandomArtist",
+            "request": "launch",
+            "mainClass": "RandomArtist.RandomArtist",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch AgeFinder",
+            "request": "launch",
+            "mainClass": "Set1.AgeFinder",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch CelsiusToFahrenheit",
+            "request": "launch",
+            "mainClass": "Set1.CelsiusToFahrenheit",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch LeapYear",
+            "request": "launch",
+            "mainClass": "Set1.LeapYear",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch Interest",
+            "request": "launch",
+            "mainClass": "Set2.Interest",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch InterestWithChoice",
+            "request": "launch",
+            "mainClass": "Set2.InterestWithChoice",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch MaxInt",
+            "request": "launch",
+            "mainClass": "Set3.MaxInt",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch RepeatedTempConv",
+            "request": "launch",
+            "mainClass": "Set3.RepeatedTempConv",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch RunningProduct",
+            "request": "launch",
+            "mainClass": "Set3.RunningProduct",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch Column",
+            "request": "launch",
+            "mainClass": "Set4.Column",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch EchoPit",
+            "request": "launch",
+            "mainClass": "Set4.EchoPit",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch FunFunctions",
+            "request": "launch",
+            "mainClass": "Set5.FunFunctions",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch StarryNight",
+            "request": "launch",
+            "mainClass": "Set5.StarryNight",
+            "projectName": "Java_c015ef64"
+        },
+        {
+            "type": "java",
+            "name": "Launch SudokuSolver(1)",
+            "request": "launch",
+            "mainClass": "SudokuSolver"
+        }
+    ]
+}
