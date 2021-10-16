@@ -28,17 +28,11 @@ public class test {
         grid[maxRow+1][0] = grid[minRow][maxColumn]; // bottom left border
         grid[0][maxColumn+1] = grid[maxRow][minColumn]; // top right border
         grid[maxRow+1][maxColumn+1] = grid[minRow][minColumn]; // bottom right border
-        for (int i = 1; i <= maxRow; i++){ // copies right values to left border
-            grid[i][0] = grid[i][maxColumn];
-        }
-        for (int i = 1; i <= maxRow; i++){ // copies left values to right border
-            grid[i][maxColumn+1] = grid[i][minColumn];
-        }
-        for (int i = 1; i <= maxColumn; i++){ // copies top values to bottom border
-            grid[maxRow+1][i] = grid[minRow][i];
-        }
-        for (int i = 1; i <= maxColumn; i++){ // copies bottom values to top border
-            grid[0][i] = grid[maxRow][i];
+        for (int i = 1; i <= maxRow; i++){ 
+            grid[i][0] = grid[i][maxColumn]; // copies right values to left border
+            grid[i][maxColumn+1] = grid[i][minColumn]; // copies left values to right border
+            grid[maxRow+1][i] = grid[minRow][i]; // copies top values to bottom border
+            grid[0][i] = grid[maxRow][i]; // copies bottom values to top border
         }
     
 

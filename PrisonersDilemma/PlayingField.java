@@ -38,8 +38,8 @@ class PlayingField extends JPanel /* possible implements ... */ {
 
     
     //initialize grid of objects
-    private int minX = 1; private int minY = 1; 
-    private int maxX = 51; private int maxY = 51;
+    private int minRow = 1; private int minColumn = 1; 
+    private int maxRow = 51; private int maxColumn = 51;
 
     private double alpha; // defection award factor
     
@@ -56,43 +56,37 @@ class PlayingField extends JPanel /* possible implements ... */ {
      */
 
     public void initGrid() {
-        for (int j = minY; j <= maxY; j++){
-            for (int i = minX; i <= maxX; i++) {
-                grid[i][j] = new Patch(random.nextBoolean(), i, j);
+        for (int row = minRow; j <= maxRow; j++){
+            for (int column = minColumn; i <= maxColumn; i++) {
+                grid[row][column] = new Patch(random.nextBoolean(), row, column);
             }
         }
-        for (int j = minY; j <= maxY; j++){
-            for (int i = minX; i <= maxX; i++) {
-                neighbours.add(grid[j-1][i-1]); // top left
-                neighbours.add(grid[j][i-1]); // top
-                neighbours.add(grid[j+1][i-1]); // top right
-                neighbours.add(grid[j-1][i]); // left
-                neighbours.add(grid[j+1][i]); // right
-                neighbours.add(grid[j-1][i+1]); // bottom left
-                neighbours.add(grid[j][i+1]); // bottom 
-                neighbours.add(grid[j+1][i+1]); // bootom right
-                grid[i][j].initNeighbours(neighbours);
+        for (int row = minRow; row <= maxRow; row++){
+            for (int column = minColumn; column <= maxColumn; column++) {
+                neighbours.add(grid[row-1][column-1]); // top left
+                neighbours.add(grid[row-1][column]); // top
+                neighbours.add(grid[row-1][column+1]); // top right
+                neighbours.add(grid[row][column-1]); // left
+                neighbours.add(grid[row][column+1]); // right
+                neighbours.add(grid[row+1][column-1]); // bottom left
+                neighbours.add(grid[row+1][column]); // bottom 
+                neighbours.add(grid[row+1][column+1]); // bootom right
+                grid[row][column].initNeighbours(neighbours);
                 neighbours.clear();
             }
         }
     }
 
     public void setBorder(){
-        grid[0][0] = grid[maxX][maxY]; // top left border
-        grid[maxX+1][0] = grid[minX][maxY]; // top right border
-        grid[0][maxY+1] = grid[maxX][minY]; // bottom left border
-        grid[maxX+1][maxY+1] = grid[minX][minY]; // bottom right border
-        for (int i = 1; i <= maxX; i++){ // copies bottom values to top border
-            grid[i][0] = grid[i][maxY];
-        }
-        for (int i = 1; i <= maxX; i++){ // copies top values to bottom border
-            grid[i][maxY+1] = grid[1][minY];
-        }
-        for (int i = 1; i <= maxX; i++){ // copies left values to right border
-            grid[maxX+1][i] = grid[minX][i];
-        }
-        for (int i = 1; i <= maxX; i++){ // copies right values to left border
-            grid[0][i] = grid[maxX][i];
+        grid[0][0] = grid[maxRow][maxColumn]; // top left border
+        grid[maxRow+1][0] = grid[minRow][maxColumn]; // bottom left border
+        grid[0][maxColumn+1] = grid[maxRow][minColumn]; // top right border
+        grid[maxRow+1][maxColumn+1] = grid[minRow][minColumn]; // bottom right border
+        for (int i = 1; i <= maxRow; i++){ 
+            grid[i][0] = grid[i][maxColumn]; // copies right values to left border
+            grid[i][maxColumn+1] = grid[i][minColumn]; // copies left values to right border
+            grid[maxRow+1][i] = grid[minRow][i]; // copies top values to bottom border
+            grid[0][i] = grid[maxRow][i]; // copies bottom values to top border
         }
 
     }

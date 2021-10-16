@@ -16,15 +16,15 @@ import java.util.ArrayList;
 
 class Patch {
     //...
-    private int xCord, yCord;
+    private int rowCord, columnCord;
     private boolean IsC = false;
     private double currentScore = 0;
     private double nextScore = 0;
     private ArrayList<Patch> neighbours = new ArrayList<>();
     
-    public Patch(boolean IsC, int x, int y){
+    public Patch(boolean IsC, int row, int column){
         this.setCooperating(IsC);
-        this.xCord = x; this.yCord = y;
+        this.rowCord = row; this.columnCord = column;
     }
    
 
