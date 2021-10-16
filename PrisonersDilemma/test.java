@@ -17,34 +17,34 @@ public class test {
         {1, 2, 3},
         {1, 2, 3},
     };
-    int maxX = 6;
-    int maxY = 6;
-    int minX = 1;
-    int minY = 1;
+    int maxRow = 6;
+    int maxColumn = 6;
+    int minRow = 1;
+    int minColumn = 1;
 
     void run(){
 
-        grid[0][0] = grid[maxX][maxY]; // top left border
-        grid[maxX+1][0] = grid[minX][maxY]; // top right border
-        grid[0][maxY+1] = grid[maxX][minY]; // bottom left border
-        grid[maxX+1][maxY+1] = grid[minX][minY]; // bottom right border
-        for (int i = 1; i <= maxX; i++){ // copies bottom values to top border
-            grid[i][0] = grid[i][maxY];
+        grid[0][0] = grid[maxRow][maxColumn]; // top left border
+        grid[maxRow+1][0] = grid[minRow][maxColumn]; // bottom left border
+        grid[0][maxColumn+1] = grid[maxRow][minColumn]; // top right border
+        grid[maxRow+1][maxColumn+1] = grid[minRow][minColumn]; // bottom right border
+        for (int i = 1; i <= maxRow; i++){ // copies right values to left border
+            grid[i][0] = grid[i][maxColumn];
         }
-        for (int i = 1; i <= maxX; i++){ // copies top values to bottom border
-            grid[i][maxY+1] = grid[1][minY];
+        for (int i = 1; i <= maxRow; i++){ // copies left values to right border
+            grid[i][maxColumn+1] = grid[i][minColumn];
         }
-        for (int i = 1; i <= maxX; i++){ // copies left values to right border
-            grid[maxX+1][i] = grid[minX][i];
+        for (int i = 1; i <= maxColumn; i++){ // copies top values to bottom border
+            grid[maxRow+1][i] = grid[minRow][i];
         }
-        for (int i = 1; i <= maxX; i++){ // copies right values to left border
-            grid[0][i] = grid[maxX][i];
+        for (int i = 1; i <= maxColumn; i++){ // copies bottom values to top border
+            grid[0][i] = grid[maxRow][i];
         }
     
 
-    for (int y = 0; y <= maxY+1; y++){
-        for (int x = 0; x<=maxX+1; x++){
-            System.out.print(grid[y][x] + " ");
+    for (int row = 0; row <= maxRow+1; row++){
+        for (int col = 0; col <= maxColumn+1; col++){
+            System.out.print(grid[row][col] + " ");
         }
         System.out.println();
     }
