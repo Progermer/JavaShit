@@ -56,11 +56,14 @@ class PlayingField extends JPanel /* possible implements ... */ {
      */
 
     public void initGrid() {
-        for (int row = minRow; j <= maxRow; j++){
-            for (int column = minColumn; i <= maxColumn; i++) {
-                grid[row][column] = new Patch(random.nextBoolean(), row, column);
+        for (int row = minRow; row <= maxRow; row++){
+            for (int column = minColumn; column <= maxColumn; column++) {
+                grid[row][column] = new Patch(random.nextBoolean());
             }
         }
+
+        setBorder();
+
         for (int row = minRow; row <= maxRow; row++){
             for (int column = minColumn; column <= maxColumn; column++) {
                 neighbours.add(grid[row-1][column-1]); // top left
@@ -70,7 +73,7 @@ class PlayingField extends JPanel /* possible implements ... */ {
                 neighbours.add(grid[row][column+1]); // right
                 neighbours.add(grid[row+1][column-1]); // bottom left
                 neighbours.add(grid[row+1][column]); // bottom 
-                neighbours.add(grid[row+1][column+1]); // bootom right
+                neighbours.add(grid[row+1][column+1]); // bottom right
                 grid[row][column].initNeighbours(neighbours);
                 neighbours.clear();
             }
@@ -88,19 +91,18 @@ class PlayingField extends JPanel /* possible implements ... */ {
             grid[maxRow+1][i] = grid[minRow][i]; // copies top values to bottom border
             grid[0][i] = grid[maxRow][i]; // copies bottom values to top border
         }
-
     }
+    
     public void step() {
         
     }
     
     public void setAlpha( double alpha ) {
-        //...
+        this.alpha = alpha;
     }
     
     public double getAlpha( ) {
-        //...
-        return 0.0; // CHANGE THIS
+        return this.alpha;
     }
     
     // probably just used for printing
@@ -114,7 +116,6 @@ class PlayingField extends JPanel /* possible implements ... */ {
                 resultGrid[x][y] = grid[x][y].isCooperating();
             }
         }
-        
         return resultGrid; 
     }
     

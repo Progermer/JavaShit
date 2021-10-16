@@ -16,24 +16,19 @@ import java.util.ArrayList;
 
 class Patch {
     //...
-    private int rowCord, columnCord;
     private boolean IsC = false;
-    private double currentScore = 0;
-    private double nextScore = 0;
+    //private double nextScore = 0;
     private ArrayList<Patch> neighbours = new ArrayList<>();
     
-    public Patch(boolean IsC, int row, int column){
+    public Patch(boolean IsC){
         this.setCooperating(IsC);
-        this.rowCord = row; this.columnCord = column;
     }
    
 
-
-
     void initNeighbours(ArrayList<Patch> Neighbours){
         this.neighbours = Neighbours;
-
     }
+
     // returns true if and only if patch is cooperating
     boolean isCooperating() {
         return this.IsC;
@@ -51,50 +46,16 @@ class Patch {
     
     // return currentScore of this patch in current round
     double getcurrentScore(double alpha) {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        return 0.0;
-        // if (this.isCooperating()){
-        //     currentScore = -1; // because this loop also looks at this patch itself as a neighbour;
-        //     for (int i=x-1; i<= x+1; i++){
-        //         for (int j=y-1; j<= y+1; j++){
-        //             if (grid[x][y].isCooperating()){ //get grid method
-        //                 currentScore += 1;
-        //             }
-        //         }
-        //     }
-        // } else {
-        //     for (int i=x-1; i<= x+1; i++){
-        //         for (int j=y-1; j<= y+1; j++){
-        //             if (grid[x][y].isCooperating()){
-        //                 currentScore += 1;
-        //             }
-                    
-        //         }
-        //     }
-        // }
-        
-        // //...
-        // return 0.0; // CHANGE THIS
+        double currentScore = 0;
+        for (Patch patch : neighbours){
+            if (patch.isCooperating()){
+                currentScore+=1;
+            }
+        }
+        if (this.isCooperating()){
+            return currentScore;
+        } else {
+            return currentScore*alpha;
+        }
     }
 }
