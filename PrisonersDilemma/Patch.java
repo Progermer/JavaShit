@@ -16,8 +16,9 @@ class Patch {
     //...
     
     boolean IsC = false;
-    float score = 0;
-
+    double currentScore = 0;
+    double nextScore = 0;
+    int x,y;
 
     
     // returns true if and only if patch is cooperating
@@ -36,9 +37,52 @@ class Patch {
         // ...
     }
     
-    // return score of this patch in current round
-    double getScore() {
-        //...
-        return 0.0; // CHANGE THIS
+    // return currentScore of this patch in current round
+    double getcurrentScore(double alpha) {
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        return 0.0;
+        // if (this.isCooperating()){
+        //     currentScore = -1; // because this loop also looks at this patch itself as a neighbour;
+        //     for (int i=x-1; i<= x+1; i++){
+        //         for (int j=y-1; j<= y+1; j++){
+        //             if (grid[x][y].isCooperating()){ //get grid method
+        //                 currentScore += 1;
+        //             }
+        //         }
+        //     }
+        // } else {
+        //     for (int i=x-1; i<= x+1; i++){
+        //         for (int j=y-1; j<= y+1; j++){
+        //             if (grid[x][y].isCooperating()){
+        //                 currentScore += 1;
+        //             }
+                    
+        //         }
+        //     }
+        // }
+        
+        // //...
+        // return 0.0; // CHANGE THIS
     }
 }
